@@ -5,7 +5,6 @@ const Game = (props) => {
 
     return (
       <div>
-            <button>Mode button</button>
             <div> Question Input Box</div>
             <div>Answer Input Box</div>
             <button>Submit</button>
