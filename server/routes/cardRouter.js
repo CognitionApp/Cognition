@@ -15,7 +15,7 @@ router.get('/', cardController.getRandomCard, (req, res) => {
 });
 // create a new card
 router.post('/', cardController.createCard, (req, res) => {
-  res.status(200).json({ message: 'Success' });
+  res.status(200).json(res.locals.flashCard);
 });
 // update an existing card
 router.patch('/:id', cardController.updateCard, (req, res) => {
