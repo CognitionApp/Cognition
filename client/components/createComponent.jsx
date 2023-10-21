@@ -4,7 +4,9 @@ import React from 'react';
 const Create = (props) => {
 
     return (
-      <div>Question Box</div>  
+      <div>
+        <div> Flash card with flip functionality</div>
+        </div>  
     )
 }
 
