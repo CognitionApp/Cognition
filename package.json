@@ -23,6 +23,12 @@
     "url": "https://github.com/CognitionApp/Cognition/issues"
   },
   "homepage": "https://github.com/CognitionApp/Cognition#readme",
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react"
+    ]
+  },
   "devDependencies": {
     "@babel/core": "^7.23.2",
     "@babel/preset-env": "^7.23.2",
