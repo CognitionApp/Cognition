@@ -11,9 +11,8 @@ mongoose.connect(
   { useNewUrlParser: true, useUnifiedTopology: true }
 );
 
-mongoose.connection.once('open', async () => {
-  await console.log('Connected to Database');
-  console.log(mongoose.connection.readyState);
+mongoose.connection.once('open', () => {
+  console.log(`Connected to Database (mongoose readyState: ${mongoose.connection.readyState})`);
 });
 
 app.use(express.json());
