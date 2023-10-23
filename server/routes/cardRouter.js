@@ -8,6 +8,7 @@ router.get('/next', cardController.getRandomCard, (req, res) => {
 });
 
 // get a specific card
+// (**this needs to go after the '/next' route, or bad things will happen!**)
 router.get('/:id', cardController.getCardById, (req, res) => {
   return res.status(200).json(res.locals.flashCard);
 });
