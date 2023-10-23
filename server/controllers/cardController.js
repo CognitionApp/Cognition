@@ -23,7 +23,27 @@ const cardController = {
       }));
   },
   updateCard: (req, res, next) => {},
-  deleteCard: (req, res, next) => {},
+  deleteCard: (req, res, next) => {
+    const { question, answer } = req.body;
+
+    FlashCard.findOneAndDelete({
+      _id: req.params.id,
+      question: req.body.question,
+      answer: req.body.answer,
+    })
+
+      .then((data) => {
+        res.locals.flashCard = data;
+        return next();
+      })
+      .catch((error) => {
+        next({
+          log: `Error: ${error}`,
+          status: 500,
+          message: { error: 'Could not delete card' },
+        });
+      });
+  },
 };
 
 module.exports = cardController;
