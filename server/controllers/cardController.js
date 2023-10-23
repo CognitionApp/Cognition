@@ -19,7 +19,26 @@ const cardController = {
         });
       });
   },
-  updateCard: (req, res, next) => {},
+  updateCard: (req, res, next) => {
+    const { question, answer } = req.body;
+
+    FlashCard.findOneAndUpdate(
+      { _id: req.params.id },
+      { question: question, answer: answer },
+      { new: true } // return the updated card so we can send it back to the client
+    )
+      .then((result) => {
+        res.locals.result = result;
+        return next();
+      })
+      .catch((err) => {
+        return next({
+          log: err,
+          status: 500,
+          message: { error: 'Could not update flash card in the database.' },
+        });
+      });
+  },
   deleteCard: (req, res, next) => {
     const { question, answer } = req.body;
 
@@ -38,27 +57,6 @@ const cardController = {
           log: `Error: ${error}`,
           status: 500,
           message: { error: 'Could not delete card' },
-        });
-      });
-  },
-
-  updateCard: (req, res, next) => {
-    const { question, answer } = req.body;
-
-    FlashCard.findOneAndUpdate(
-      { _id: req.params.id },
-      { question: question, answer: answer },
-      { new: true } // return the updated card so we can send it back to the client
-    )
-      .then((result) => {
-        res.locals.result = result;
-        return next();
-      })
-      .catch((err) => {
-        return next({
-          log: err,
-          status: 500,
-          message: { error: 'Could not update flash card in the database.' },
         });
       });
   },
