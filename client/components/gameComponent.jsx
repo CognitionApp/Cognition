@@ -1,6 +1,7 @@
 import React from 'react';
 import '../stylesheets/style.scss';
 
+import CreateModeSidebar from './createMode/Sidebar';
 
 const Game = (props) => {
 
@@ -15,7 +16,7 @@ const Game = (props) => {
               <input type="text" placeholder = "Enter text here"/>
             </div>
             <button className = 'button'>Submit</button>
-            <div className = 'container'>Flashcard Container</div>
+            <CreateModeSidebar />
       </div>  
     )
 }
