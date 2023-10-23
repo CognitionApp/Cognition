@@ -27,27 +27,22 @@ const cardController = {
       { question: question, answer: answer },
       { new: true } // return the updated card so we can send it back to the client
     )
-      .then((result) => {
-        res.locals.result = result;
+      .then((data) => {
+        res.locals.flashCard = data;
         return next();
       })
-      .catch((err) => {
+      .catch((error) => {
         return next({
-          log: err,
+          log: error,
           status: 500,
           message: { error: 'Could not update flash card in the database.' },
         });
       });
   },
   deleteCard: (req, res, next) => {
-    const { question, answer } = req.body;
-
     FlashCard.findOneAndDelete({
       _id: req.params.id,
-      question: req.body.question,
-      answer: req.body.answer,
     })
-
       .then((data) => {
         res.locals.flashCard = data;
         return next();
