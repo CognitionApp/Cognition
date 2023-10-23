@@ -16,10 +16,9 @@ const cardController = {
           log: error,
           status: 404,
           message: { error: 'Could not create flash card.' },
-        })
+        });
       });
   },
-
   updateCard: (req, res, next) => {
     const { question, answer } = req.body;
 
@@ -28,20 +27,34 @@ const cardController = {
       { question: question, answer: answer },
       { new: true } // return the updated card so we can send it back to the client
     )
-      .then(result => {
-        res.locals.result = result;
+      .then((data) => {
+        res.locals.flashCard = data;
         return next();
       })
-      .catch(err => {
+      .catch((error) => {
         return next({
-          log: err,
+          log: error,
           status: 500,
-          message: { error: 'Could not update flash card in the database.' }
+          message: { error: 'Could not update flash card in the database.' },
         });
       });
   },
-
-  deleteCard: (req, res, next) => {},
+  deleteCard: (req, res, next) => {
+    FlashCard.findOneAndDelete({
+      _id: req.params.id,
+    })
+      .then((data) => {
+        res.locals.flashCard = data;
+        return next();
+      })
+      .catch((error) => {
+        next({
+          log: `Error: ${error}`,
+          status: 500,
+          message: { error: 'Could not delete card' },
+        });
+      });
+  },
 };
 
 module.exports = cardController;
