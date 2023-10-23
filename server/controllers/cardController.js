@@ -1,8 +1,29 @@
 const FlashCard = require('../models/cardModel');
 
 const cardController = {
-  getCardById: (req, res, next) => {},
-  getRandomCard: (req, res, next) => {},
+  getCardById: (req, res, next) => {
+    FlashCard.findById(req.params.id)
+    .then((data) => {
+      res.locals.flashCard = data;
+      return next();
+    })
+    .catch((error) => {
+      return next({
+        log: error,
+        status: 404,
+        message: {error: `Could not find id: ${res.params.id} in database`}
+      })
+    })
+  },
+
+  getRandomCard: (req, res, next) => {
+//from database, pull all of the object's ids into an array
+    //randomly select an id from array
+    //access database again to pull card info
+      //send card info 
+    console.log('entered getRandomCard');
+    return next();
+  },
 
   createCard: (req, res, next) => {
     const { question, answer } = req.body;
