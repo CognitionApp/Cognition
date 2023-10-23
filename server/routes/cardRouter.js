@@ -2,14 +2,19 @@ const express = require('express');
 const router = express.Router();
 const cardController = require('../controllers/cardController');
 
+// get a random card
+router.get('/next', cardController.getRandomCard, (req, res) => {
+  return res.status(200).json(res.locals.flashCard);
+});
+
 // get a specific card
 router.get('/:id', cardController.getCardById, (req, res) => {
   return res.status(200).json(res.locals.flashCard);
 });
 
-// get a card
-router.get('/', cardController.getRandomCard, (req, res) => {
-  return res.status(200).json(res.locals.flashCard);
+// get all cards
+router.get('/', cardController.getAllCards, (req, res) => {
+  return res.status(200).json(res.locals.flashCards);
 });
 
 // create a new card
