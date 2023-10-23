@@ -4,12 +4,12 @@ const cardController = require('../controllers/cardController');
 
 // get a specific card
 router.get('/:id', cardController.getCardById, (req, res) => {
-  return res.status(200).json({ message: 'Success' });
+  return res.status(200).json(res.locals.flashCard);
 });
 
 // get a card
 router.get('/', cardController.getRandomCard, (req, res) => {
-  return res.status(200).json({ message: 'Success' });
+  return res.status(200).json(res.locals.flashCard);
 });
 
 // create a new card
