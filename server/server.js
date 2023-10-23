@@ -3,7 +3,6 @@ const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
 const PORT = 3000;
-//react by default listens on port 3000
 const cardRouter = require('./routes/cardRouter');
 
 mongoose.connect(
@@ -11,9 +10,8 @@ mongoose.connect(
   { useNewUrlParser: true, useUnifiedTopology: true }
 );
 
-mongoose.connection.once('open', async () => {
-  await console.log('Connected to Database');
-  console.log(mongoose.connection.readyState);
+mongoose.connection.once('open', () => {
+  console.log(`Connected to Database (mongoose readyState: ${mongoose.connection.readyState})`);
 });
 
 app.use(express.json());
