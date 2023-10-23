@@ -3,7 +3,6 @@ const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
 const PORT = 3000;
-//react by default listens on port 3000
 const cardRouter = require('./routes/cardRouter');
 
 mongoose.connect(
