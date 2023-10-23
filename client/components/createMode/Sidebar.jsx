@@ -16,7 +16,8 @@ const CreateModeSidebar = () => {
 
   const sidebarListItems = cardList.map((card, i) => {
     return(<SidebarListItem
-      key = {`sidebarListItem-${card.id}`}
+      key = {`sidebarListItem-${i}`}
+      id = {card.id}
       question = {card.question}
       answer = {card.answer}
     />);
