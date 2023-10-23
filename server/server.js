@@ -23,7 +23,7 @@ app.use('/cards', cardRouter);
 //global errors
 app.use((err, req, res, next) => {
   const defaultErr = {
-    log: 'Express error handler caught unknown middleware error',
+    log: `Express error handler caught unknown middleware error: ${err}`,
     status: 500,
     message: { err: 'An error occurred' },
   };
