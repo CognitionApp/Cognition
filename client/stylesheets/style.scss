@@ -5,17 +5,6 @@
 
 }
 
-.container{
-    display: flex;
-    position: absolute;
-    top: 100px;
-    right: 20px;
-    float: right;
-    padding: 20px;
-    border: 2px solid;
-    background-color: rgb(255, 255, 255);
-};
-
 .flashcard {
     background-color: white;
     margin: 10px;
@@ -28,10 +17,22 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
+    
 };
 
 .button {
     padding: 10px 20px;
     float: center;
+};
+
+// Create Mode-specific styling
+nav.sidebar {
+    display: flex;
+    position: absolute;
+    top: 100px;
+    right: 20px;
+    float: right;
+    padding: 20px;
+    border: 2px solid;
+    background-color: rgb(255, 255, 255);
 };
