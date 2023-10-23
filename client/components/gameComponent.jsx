@@ -1,14 +1,21 @@
 import React from 'react';
+import '../stylesheets/style.scss';
 
 
 const Game = (props) => {
 
     return (
-      <div>
-            <div> Question Input Box</div>
-            <div>Answer Input Box</div>
-            <button>Submit</button>
-            <div>Flashcard Container</div>
+      <div className= "flashContainer">
+            <div className='flashcard'> 
+              <label>Front: </label>
+              <input type="text" placeholder = "Enter text here"/>
+            </div>
+            <div className='flashcard'>
+              <label>Back: </label>
+              <input type="text" placeholder = "Enter text here"/>
+            </div>
+            <button className = 'button'>Submit</button>
+            <div className = 'container'>Flashcard Container</div>
       </div>  
     )
 }

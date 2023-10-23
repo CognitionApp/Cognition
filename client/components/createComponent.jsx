@@ -1,12 +1,13 @@
 import React from 'react';
+import '../stylesheets/style.scss';
 
 
 const Create = (props) => {
 
     return (
-      <div>
-        <div> Flash card with flip functionality</div>
-        </div>  
+      <div className= "flashContainer">
+        <div className='flashcard'> Flash card with flip functionality</div>
+      </div>  
     )
 }
 

@@ -16,7 +16,7 @@ function App(){
 // }else{
 //     return <Create/>
 // }
-const [boolCheck, setboolCheck] = useState(true)
+const [boolCheck, setboolCheck] = useState(false)
 
 const switchFunc = () => setboolCheck(!boolCheck);
 
@@ -27,7 +27,9 @@ const swapLogic = boolCheck ? <Create /> : <Game/>;
 
             <div>
             <h1>Cognition</h1>
+            <div className = "flashContainer">
             <button onClick={switchFunc}>Mode button</button>
+            </div>
             {swapLogic}
             </div>
     )
