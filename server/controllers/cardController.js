@@ -8,19 +8,13 @@ const cardController = {
     const { question, answer } = req.body;
     FlashCard.create({ question: question, answer: answer })
       .then((data) => {
-        console.log('data', data);
-        if (!data) {
-          return next({
-            log: 'createCard failed here',
-          });
-        }
         res.locals.flashCard = data;
         return next();
       })
       .catch((error) => {
         return next({
-        log: error,
-        status: 404,
+          log: error,
+          status: 404,
           message: { error: 'Could not create flash card.' },
         })
       });
