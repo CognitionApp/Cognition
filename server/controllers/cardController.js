@@ -21,6 +21,7 @@ const cardController = {
         return next({
         log: error,
         status: 404,
+          message: { error: 'Could not create flash card.' },
         })
       });
   },
