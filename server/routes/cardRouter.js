@@ -16,7 +16,7 @@ router.get('/:id', cardController.getCardById, (req, res) => {
 // get all cards
 router.get('/', cardController.getAllCards, (req, res) => {
   return res.status(200).json(res.locals.flashCards);
-});
+});  
 
 // create a new card
 router.post('/', cardController.createCard, (req, res) => {
