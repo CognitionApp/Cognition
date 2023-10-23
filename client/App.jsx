@@ -15,7 +15,7 @@ function App() {
   // }else{
   //     return <Create/>
   // }
-  const [boolCheck, setboolCheck] = useState(false);
+  const [boolCheck, setboolCheck] = useState(true);
 
   const switchFunc = () => setboolCheck(!boolCheck);
 
