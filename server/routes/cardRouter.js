@@ -24,7 +24,7 @@ router.patch('/:id', cardController.updateCard, (req, res) => {
 
 // delete an existing card
 router.delete('/:id', cardController.deleteCard, (req, res) => {
-  res.status(200).json({ message: 'Success' });
+  res.status(200).json(`Success. ${res.locals.flashCard} has been deleted`);
 });
 
 module.exports = router;
