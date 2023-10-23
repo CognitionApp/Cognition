@@ -1,6 +1,8 @@
 import React from 'react';
 import '../stylesheets/style.scss';
 
+import CreateModeSidebar from './createMode/Sidebar';
+
 const Create = (props) => {
   return (
     <div className='flashContainer'>
@@ -13,7 +15,7 @@ const Create = (props) => {
         <input type='text' placeholder='Enter text here' />
       </div>
       <button className='button'>Submit</button>
-      <div className='container'>Flashcard Container</div>
+      <CreateModeSidebar />
     </div>
   );
 };
