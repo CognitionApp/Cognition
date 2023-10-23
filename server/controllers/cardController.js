@@ -17,12 +17,25 @@ const cardController = {
   },
 
   getRandomCard: (req, res, next) => {
-//from database, pull all of the object's ids into an array
-    //randomly select an id from array
-    //access database again to pull card info
-      //send card info 
-    console.log('entered getRandomCard');
-    return next();
+    //from database, pull all of the object's ids into an array
+    FlashCard.find(undefined, '_id')
+      .then(data => {
+        //randomly select an id from array
+        const randomCard = Math.floor(Math.random() * data.length);
+        //access database again to pull the selected card's info
+        return FlashCard.findById(data[randomCard]._id)
+      })
+      .then(data => {
+        res.locals.flashCard = data;
+        return next();
+      })
+      .catch((error) => {
+        return next({
+          log: error,
+          status: 500,
+          message: { error: 'Could not retrieve the next card from the database.' }
+        })
+      });
   },
 
   createCard: (req, res, next) => {
