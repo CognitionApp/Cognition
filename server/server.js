@@ -11,7 +11,9 @@ mongoose.connect(
 );
 
 mongoose.connection.once('open', () => {
-  console.log(`Connected to Database (mongoose readyState: ${mongoose.connection.readyState})`);
+  console.log(
+    `Connected to Database (mongoose readyState: ${mongoose.connection.readyState})`
+  );
 });
 
 app.use(express.json());
