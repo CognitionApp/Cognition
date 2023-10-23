@@ -37,7 +37,7 @@ const Game = (props) => {
   let displayOutput;
   if (nextAction === 'showCard') {
     // we have a new card, so display the question side
-    displayOutput = cardContent.question;
+    displayOutput = 'Q: ' + cardContent.question;
   } else {
     // one of two states:
     // 1) we just flipped the card, or
@@ -46,7 +46,7 @@ const Game = (props) => {
     //    server yet.
     // in either case, show (or continue showing) the
     // answer side of the card.
-    displayOutput = cardContent.answer;
+    displayOutput = 'A: ' + cardContent.answer;
   }
 
   return (
