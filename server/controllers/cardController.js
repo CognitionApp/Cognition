@@ -1,6 +1,22 @@
 const FlashCard = require('../models/cardModel');
 
 const cardController = {
+  getAllCards: (req, res, next) => {
+    FlashCard.find()
+      .then((data) => {
+        console.log(data);
+        res.locals.flashCards = data;
+        return next();
+      })
+      .catch((error) => {
+        return next({
+          log: error,
+          status: 500,
+          message: { error: 'Could not fetch the card list from the database.' }
+        })
+      });
+  },
+
   getCardById: (req, res, next) => {
     FlashCard.findById(req.params.id)
     .then((data) => {

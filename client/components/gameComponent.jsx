@@ -10,7 +10,7 @@ const Game = (props) => {
     if (nextAction === 'newCard') {
       async function getNewCard() {
         // do the fetch
-        const response = await fetch('/cards');
+        const response = await fetch('/cards/next');
         const cardData = await response.json();
         setCardContent(cardData);
         setNextAction('showCard');
