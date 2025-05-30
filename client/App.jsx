@@ -3,7 +3,7 @@ import Game from './components/gameComponent';
 import Create from './components/createComponent';
 
 function App() {
-  // Add functionalityt fot the button
+  // Add functionality fot the button
   // need to create an Array with the components to show
   // function will show a different index of it with every click
   // true - false option to show Game or Create component
